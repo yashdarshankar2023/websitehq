@@ -22,7 +22,7 @@ const hero = () => {
                             Ask literally anything. Notion
                             will answer.
                         </p>
-                        <a style={{ color: '#9d34da' }}>Learn more →</a>
+                        <a style={{ color: '#9d34da' }} href='temp'>Learn more →</a>
 
                     </div>
 
@@ -34,7 +34,7 @@ const hero = () => {
                         <p>Centralize your knowledge.
                             No more hunting for answers.
                         </p>
-                        <a style={{ color: "#EA4E43" }}>Learn more →</a>
+                        <a style={{ color: "#EA4E43" }} href='temp'>Learn more →</a>
 
                     </div>
 
@@ -45,7 +45,7 @@ const hero = () => {
                         <p>Manage complex projects
                             without the chaos.
                         </p>
-                        <a style={{ color: "#0A85D1" }}>Learn more →</a>
+                        <a style={{ color: "#0A85D1" }}href='temp'>Learn more →</a>
 
                     </div>
 
@@ -59,7 +59,7 @@ const hero = () => {
                             Simple, powerful, beautiful.
                             Next-gen notes & docs.
                         </p>
-                        <a style={{ color: "#FAA700" }}>Learn more →</a>
+                        <a style={{ color: "#FAA700" }} href='temp'>Learn more →</a>
 
                     </div>
 
@@ -87,13 +87,13 @@ const hero = () => {
                     <div>
                         <h3>Consolidate tools.
                             Cut costs.</h3>
-                        <img src='../assets/adbox2.png' />
+                        <img src='../assets/adbox2.png' alt='invalid'/>
                     </div>
-                    <img src='../assets/adbox3.png' />
+                    <img src='../assets/adbox3.png' alt='invalid'/>
                 </div>
                 <h4>We got rid of nearly a dozen different tools because of<br />what Notion does for us.</h4>
                 <div className='advertizeBox3'>
-                    <img src='/assets/adbox4.png' />
+                    <img src='/assets/adbox4.png' alt='invalid' />
 
                     <h5>Justin Watt<br /><span>Director of Ops & Marketing, MetaLab</span>
                     </h5>
@@ -106,7 +106,7 @@ const hero = () => {
             </section>
             <section className='buildingBlocks'>
                 <h2>
-                    <img src='/assets/buildingblocks.png' />Powerful building blocks
+                    <img src='/assets/buildingblocks.png' alt='invalid'/>Powerful building blocks
                 </h2>
                 <div className='buildingBlocksbox1'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
@@ -115,7 +115,7 @@ const hero = () => {
                     <h3>Visualize, filter & sort any way you want</h3>
                     <p>Show only tasks assigned to you, or items marked as urgent. Break
                         down any project in the way that’s most helpful to you.</p>
-                    <img src='/assets/blocks1.png' />
+                    <img src='/assets/blocks1.png'alt='invalid' />
 
                     <div>
                         <div>Board</div>
@@ -141,7 +141,7 @@ const hero = () => {
                         <h3>Customize the info you track</h3>
                         <p>Create your own labels, tags, owners, and more, so
                             everyone has context and everything stays organized.</p>
-                        <img src='/assets/buildingblocks4.png' />
+                        <img src='/assets/buildingblocks4.png' alt='invalid'/>
                     </div>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
@@ -150,14 +150,14 @@ const hero = () => {
                         <h3>Build any page, communicate any idea</h3>
                         <p>Everything is drag and drop in Notion — images,
                             toggles, to-do’s, even embedded databases.</p>
-                        <img src='/assets/buildingblocks5.png' />
+                        <img src='/assets/buildingblocks5.png' alt='invalid'/>
                     </div>
 
                 </div>
                 <br />
                 <h4>Notion adapts to your needs. It’s as minimal or as<br />powerful as you need it to be.</h4>
                 <div className='buildingBlocksbox3'>
-                    <img src='/assets/buildingblocksbox3img.png' />
+                    <img src='/assets/buildingblocksbox3img.png' alt='invalid'/>
                     <h6>Rahim Makani<br /><span>Director of Product, Matchgroup</span></h6>
                 </div>
 
@@ -168,32 +168,32 @@ const hero = () => {
                 </h2>
                 <div className='sidebysidebox'>
                     <div>
-                        <img src='/assets/ssprofile1.png' />
+                        <img src='/assets/ssprofile1.png' alt='invalid'/>
                         Engineering
 
                     </div>
                     <div>
-                        <img src='/assets/ssprofile1.png' />
+                        <img src='/assets/ssprofile1.png' alt='invalid'/>
                         Engineering
 
                     </div>
                     <div>
-                        <img src='/assets/ssprofile1.png' />
+                        <img src='/assets/ssprofile1.png' alt='invalid'/>
                         Engineering
 
                     </div>
                     <div>
-                        <img src='/assets/ssprofile1.png' />
+                        <img src='/assets/ssprofile1.png' alt='invalid' />
                         Engineering
 
                     </div>
                     <div>
-                        <img src='/assets/ssprofile1.png' />
+                        <img src='/assets/ssprofile1.png' alt='invalid'/>
                         Engineering
 
                     </div>
                     <div>
-                        <img src='/assets/ssprofile1.png' />
+                        <img src='/assets/ssprofile1.png' alt='invalid'/>
                         Engineering
 
                     </div>
@@ -207,8 +207,8 @@ const hero = () => {
             <section className='creativity'>
                 <h2>Join a global movement. Unleash your creativity.</h2>
                 <p>Our vibrant community produces content, teaches courses, and leads events all over <br />the world.</p>
-                <a>Learn more →</a>
-                <img src='/assets/creativity1.png' />
+                <a href='temp'>Learn more →</a>
+                <img src='/assets/creativity1.png' alt='invalid' />
                 <div className='creativityBox1'>
                     <h3>1M+<span>community members<br /></span></h3>
                     <h3>150+<span>community groups<br /></span></h3>
@@ -219,13 +219,13 @@ const hero = () => {
                         <h6>An always-on support network</h6>
                         <p>Swap setups and share tips in over 149 online
                             communities.</p>
-                        <img src='/assets/creativity2.png' width='288px' height='276.75px' />
+                        <img src='/assets/creativity2.png' width='288px' height='276.75px' alt='invalid'/>
                     </div>
                     <div>
                         <h6>An always-on support network</h6>
                         <p>Swap setups and share tips in over 149 online
                             communities.</p>
-                        <img src='/assets/creativity3.png' width='288px' height='276.75px' />
+                        <img src='/assets/creativity3.png' width='288px' height='276.75px' alt='invalid'/>
                     </div>
 
 
@@ -233,7 +233,7 @@ const hero = () => {
                 </div>
                 <div className='creativityBox2'>
                     <div>
-                        <img src='/assets/creativity4.png' />
+                        <img src='/assets/creativity4.png' alt='invalid'/>
                         <p>Community meet-up in Tokyo</p>
                         <div className='creativityBox2Circles'>
                             <div></div>
@@ -248,7 +248,7 @@ const hero = () => {
                     <div>
                         <div>
                             <div>
-                                <img src='/assets/creativityProfile1.png' />
+                                <img src='/assets/creativityProfile1.png' alt='invalid'/>
                                 <h6>Deborah Mecca
                                     <br /><span>@DebMecca</span></h6></div>
 
@@ -261,7 +261,7 @@ const hero = () => {
                         </div>
                         <div>
                             <div>
-                                <img src='/assets/creativityProfile1.png' />
+                                <img src='/assets/creativityProfile1.png' alt='invalid' />
                                 <h6>Deborah Mecca
                                     <br /><span>@DebMecca</span></h6></div>
 
@@ -274,7 +274,7 @@ const hero = () => {
                         </div>
                         <div>
                             <div>
-                                <img src='/assets/creativityProfile1.png' />
+                                <img src='/assets/creativityProfile1.png' alt='invalid'/>
                                 <h6>Deborah Mecca
                                     <br /><span>@DebMecca</span></h6></div>
 
@@ -293,7 +293,7 @@ const hero = () => {
             <section className='endlessways'>
                 <div className='endlesswaysHeader'>
                     <h2>Endless ways to use it<br /><span>Browse all templates →</span></h2>
-                    <img src='/assets/endless1.png' />
+                    <img src='/assets/endless1.png' alt='invalid'/>
                 </div>
                 <div className='endlesswaysBody'>
                     <div>
@@ -301,8 +301,8 @@ const hero = () => {
                             <path d="M22.8408 14.5H19.9971V22.625H15.1221V16.125H11.0596V22.625H6.18457V14.5H3.34082V12.875L13.0908 3.125L16.7471 6.78125V3.9375H19.9971V10.0312L22.8408 12.875V14.5Z" fill="#EA4E43" />
                         </svg>
                         <h3>Company wiki</h3>
-                        <a>Get template →</a>
-                        <img src='/assets/endless2.png' />
+                        <a href='temp'>Get template →</a>
+                        <img src='/assets/endless2.png' alt='invalid'/>
                     </div>
                     <div>
                         <h4>
@@ -412,9 +412,9 @@ const hero = () => {
                 <p>Play around with it first. Pay and add your team later.</p>
                 <div>
                     <button>Try Notion free</button>
-                    <a>Request a demo →</a>
+                    <a href='temp'>Request a demo →</a>
                 </div>
-                <img src='/assets/getstarted1.png' />
+                <img src='/assets/getstarted1.png' alt='invalid'/>
 
             </section>
             <footer>
