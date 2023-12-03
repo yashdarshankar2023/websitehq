@@ -1,9 +1,29 @@
-import React from 'react'
+import { useState } from 'react'
 
 
 import "../App.css"
 
 const Hero = () => {
+
+    const [backgroundImage, setBackgroundImage] = useState('/assets/heroai.png');
+
+    const handleCardHover = (newImage) => {
+        setBackgroundImage(newImage);
+    };
+
+    const handleCardLeave = () => {
+        setBackgroundImage('/assets/heroai.png');
+    }
+    const [selectedOption, setSelectedOption] = useState('Board');
+
+    const handleOptionClick = (option) => {
+        setSelectedOption(option);
+    };
+    const [selectedImage, setSelectedImage] = useState('https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/persona-carousel/screenshots/engineering.png');
+
+    const handleImageClick = (imageUrl) => {
+        setSelectedImage(imageUrl);
+    };
     return (
         <div>
             <section className='heroheading'>
@@ -13,7 +33,9 @@ const Hero = () => {
                 <br />
                 <img src='https://www.notion.so/cdn-cgi/image/format=webp,width=2048/https://images.ctfassets.net/spoqsaf9291f/3csRrNi1u82ymVlwjfo2E6/02516e52af15501acd822d3e7a03baf9/home-hero.png' alt='hero img'></img>
                 <div className='heroCards'>
-                    <div className='heroCard'>
+                    <div className='heroCard'
+                        onMouseOver={() => handleCardHover('/assets/heroai.png')}
+                        onMouseLeave={handleCardLeave}>
                         <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                             <path d="M8.80451 5.8082C9.18368 5.67695 9.18368 5.44362 8.80451 5.29779L6.74827 4.51029C6.38369 4.37904 5.96077 3.95612 5.81494 3.57696L5.02744 1.5207C4.89619 1.14154 4.66286 1.14154 4.51702 1.5207L3.72952 3.57696C3.59827 3.94154 3.17536 4.36445 2.79619 4.51029L0.739941 5.29779C0.360775 5.42904 0.360775 5.66237 0.739941 5.8082L2.79619 6.5957C3.16077 6.72695 3.58369 7.14987 3.72952 7.52904L4.51702 9.58525C4.64827 9.96442 4.88161 9.96442 5.02744 9.58525L5.81494 7.52904C5.94619 7.16445 6.36911 6.74154 6.74827 6.5957L8.80451 5.8082Z" fill="#9D34DA" />
                             <path d="M18.8234 13.0123C19.99 12.7207 19.99 12.2394 18.8234 11.9478L16.2421 11.3061C15.0755 11.0144 13.8796 9.81859 13.588 8.65193L12.9463 6.07068C12.6546 4.90401 12.1734 4.90401 11.8817 6.07068L11.24 8.65193C10.9484 9.81859 9.75255 11.0144 8.58588 11.3061L6.00464 11.9478C4.83797 12.2394 4.83797 12.7207 6.00464 13.0123L8.58588 13.654C9.75255 13.9457 10.9484 15.1415 11.24 16.3082L11.8817 18.8894C12.1734 20.0561 12.6546 20.0561 12.9463 18.8894L13.588 16.3082C13.8796 15.1415 15.0755 13.9457 16.2421 13.654L18.8234 13.0123Z" fill="#9D34DA" />
@@ -26,7 +48,8 @@ const Hero = () => {
 
                     </div>
 
-                    <div className='heroCard'>
+                    <div className='heroCard' onMouseOver={() => handleCardHover('/assets/herowikis.png')}
+                        onMouseLeave={handleCardLeave}>
                         <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                             <path d="M8.84092 17.6428H2.62842C2.17842 17.6428 1.80342 17.2678 1.80342 16.8178V9.0428C1.80342 8.5553 2.05342 8.2803 2.52842 8.2803H2.90342V6.8803H2.12842C1.09092 6.8803 0.253418 7.7178 0.253418 8.7553V17.1928C0.253418 18.2303 1.09092 19.0678 2.12842 19.0678H8.84092V17.6428ZM18.0659 6.8678H17.2909V8.2678H17.7034C18.1534 8.2678 18.3784 8.5303 18.3784 8.9428V16.8303C18.3784 17.2803 18.0159 17.6553 17.5534 17.6553H11.3409V19.0553H18.0659C19.1034 19.0553 19.9409 18.2178 19.9409 17.1803V8.7428C19.9409 7.7053 19.1034 6.8678 18.0659 6.8678Z" fill="#EA4E43" />
                             <path d="M16.5034 2.4928C14.3409 2.7803 11.7534 3.6303 10.1034 4.6428C8.44087 3.6303 5.85337 2.7803 3.70337 2.4928V15.3053C5.47837 15.5178 7.31587 15.9303 9.17837 16.6553L10.1159 17.0678L11.0534 16.6553C12.9159 15.9303 14.7534 15.5053 16.5284 15.3053V2.4928H16.5034ZM5.56587 13.9053V4.6553C6.90337 4.8928 8.45337 5.4928 9.16587 6.0678V14.9178C8.12837 14.4928 6.67837 14.1053 5.56587 13.9053ZM14.6284 13.9053C13.5284 14.1053 12.0659 14.4928 11.0284 14.9178V6.0678C11.7284 5.4803 13.2909 4.8928 14.6284 4.6553V13.9053Z" fill="#EA4E43" />
@@ -38,18 +61,20 @@ const Hero = () => {
 
                     </div>
 
-                    <div className='heroCard'>
+                    <div className='heroCard' onMouseOver={() => handleCardHover('/assets/heroproject.png')}
+                        onMouseLeave={handleCardLeave}>
                         <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7658 4.35528L17.2533 6.90528L17.2408 6.88026C16.0033 8.14279 15.0783 8.43026 13.2783 8.24279L11.9908 9.54279C12.4408 10.3678 12.3283 11.4303 11.6408 12.1303C10.8033 12.9928 9.4158 12.9928 8.55331 12.1553C7.69082 11.3178 7.67829 9.9303 8.52829 9.06777C9.2158 8.36777 10.2658 8.24279 11.1033 8.68026L12.3908 7.38026C12.1783 5.58026 12.4408 4.65528 13.6783 3.39277L16.1908 0.842773L16.8908 3.71777L19.7658 4.35528ZM13.8284 9.56777H14.1659V9.59275C14.6284 9.59275 15.0409 9.54275 15.4284 9.45524C15.5159 9.84275 15.5659 10.2303 15.5659 10.6427C15.5659 13.6678 13.1159 16.1178 10.0909 16.1178C7.06588 16.1178 4.61588 13.6678 4.61588 10.6427C4.61588 7.61777 7.06588 5.16777 10.0909 5.16777C10.4659 5.16777 10.8409 5.20524 11.1909 5.28026C11.0909 5.76777 11.0534 6.29275 11.0909 6.88026C10.7659 6.79275 10.4409 6.73026 10.0909 6.73026C7.9409 6.73026 6.1909 8.48026 6.1909 10.6303C6.1909 12.7803 7.9409 14.5303 10.0909 14.5303C12.2409 14.5303 13.9909 12.7803 13.9909 10.6303C13.9909 10.2552 13.9284 9.90524 13.8284 9.56777ZM17.2908 8.53026C17.5783 8.31777 17.8533 8.06777 18.1408 7.78026L18.7908 7.11777C19.2158 8.20528 19.4658 9.38026 19.4658 10.6178C19.4658 15.7927 15.2658 19.9928 10.0908 19.9928C4.9158 19.9928 0.71582 15.7927 0.71582 10.6178C0.71582 5.44275 4.9158 1.24277 10.0908 1.24277C11.2658 1.24277 12.3908 1.46777 13.4283 1.86777L12.7908 2.51777C12.5033 2.80527 12.2658 3.09277 12.0533 3.38027C11.4283 3.21777 10.7658 3.11777 10.0908 3.11777C5.95331 3.11777 2.59082 6.48026 2.59082 10.6178C2.59082 14.7553 5.95331 18.1178 10.0908 18.1178C14.2283 18.1178 17.5908 14.7553 17.5908 10.6178C17.5908 9.89275 17.4783 9.19275 17.2908 8.53026Z" fill="#0A85D1" />
                         </svg>Projects</h3>
                         <p>Manage complex projects
                             without the chaos.
                         </p>
-                        <a style={{ color: "#0A85D1" }}href='temp'>Learn more →</a>
+                        <a style={{ color: "#0A85D1" }} href='temp'>Learn more →</a>
 
                     </div>
 
-                    <div className='heroCard'>
+                    <div className='heroCard' onMouseOver={() => handleCardHover('/assets/herodocs.png')}
+                        onMouseLeave={handleCardLeave}>
                         <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                             <path d="M16.5072 6.54101L11.4745 2.46345C11.1807 2.21856 10.8011 2.08386 10.4092 2.08386H4.7276C3.79699 2.08386 3.05005 2.8308 3.05005 3.76141V17.5492C3.05005 18.4798 3.80923 19.2267 4.7276 19.2267H15.4541C16.3847 19.2267 17.1317 18.4798 17.1317 17.5492V7.85121C17.1317 7.34917 16.899 6.85937 16.5072 6.54101ZM11.1562 3.76141L15.3929 7.45937C15.5643 7.60631 15.4664 7.88794 15.2337 7.88794H11.6092C11.3643 7.88794 11.1562 7.69203 11.1562 7.43488V3.76141ZM14.7684 17.5369H5.40107C5.11944 17.5369 4.88678 17.3043 4.88678 17.0104V4.2757C4.88678 3.99407 5.11944 3.76141 5.40107 3.76141H9.62556V7.90019C9.62556 8.74509 10.3113 9.4308 11.1562 9.4308H15.2827V17.0226C15.2827 17.3043 15.05 17.5369 14.7684 17.5369Z" fill="#FAA700" />
                             <path d="M7.33569 11.7329H12.8459H7.33569ZM7.33569 14.6594H12.8459H7.33569Z" fill="#FAA700" />
@@ -66,7 +91,7 @@ const Hero = () => {
 
 
                 </div>
-                <div className='herobox'></div>
+                <div className='herobox' style={{ backgroundImage: `url(${backgroundImage})` }}></div>
 
             </section>
             <section className='advertize'>
@@ -77,19 +102,29 @@ const Hero = () => {
                 </p>
                 <a href='read'>Read customer stories →</a>
                 <div className='advertizeBox1'>
-
                     <img src='/assets/figma.png' width='87px' height='28.67' alt='figma' />
-
-
+                    <img src='/assets/ad2.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad3.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad4.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad5.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad6.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad7.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad8.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad9.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad10.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad11.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad12.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad13.png' width='87px' height='28.67' alt='figma' />
+                    <img src='/assets/ad14.png' width='87px' height='28.67' alt='figma' />
 
                 </div>
                 <div className='advertizeBox2'>
                     <div>
                         <h3>Consolidate tools.
                             Cut costs.</h3>
-                        <img src='../assets/adbox2.png' alt='invalid'/>
+                        <img src='../assets/adbox2.png' alt='invalid' />
                     </div>
-                    <img src='../assets/adbox3.png' alt='invalid'/>
+                    <img src='../assets/adbox3.png' alt='invalid' />
                 </div>
                 <h4>We got rid of nearly a dozen different tools because of<br />what Notion does for us.</h4>
                 <div className='advertizeBox3'>
@@ -106,24 +141,31 @@ const Hero = () => {
             </section>
             <section className='buildingBlocks'>
                 <h2>
-                    <img src='/assets/buildingblocks.png' alt='invalid'/>Powerful building blocks
+                    <img src='/assets/buildingblocks.png' alt='invalid' />Powerful building blocks
                 </h2>
                 <div className='buildingBlocksbox1'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
                         <path d="M18.6727 13.884L23.9539 19.1653L18.6727 24.4465L16.9502 22.724L19.2902 20.384H16.3896C14.8214 20.384 13.6636 19.7909 12.7536 18.5112L11.6527 16.9715L13.1518 14.8753L14.7361 17.0975C15.1911 17.7353 15.6055 17.9465 16.3896 17.9465H19.2902L16.9502 15.6065L18.6727 13.884ZM16.3896 9.00903H19.2902L16.9502 11.349L18.6727 13.0715L23.9539 7.79028L18.6727 2.50903L16.9502 4.23153L19.2902 6.57153H16.3896C14.8214 6.57153 13.6636 7.16466 12.7536 8.44435L6.57457 17.0975C6.11957 17.7353 5.7052 17.9465 4.92113 17.9465H2.53238V20.384H4.92113C6.48926 20.384 7.64707 19.7909 8.55707 18.5112L14.7361 9.8581C15.1911 9.22028 15.6055 9.00903 16.3896 9.00903ZM6.57051 9.8581L8.15488 12.0803L9.65394 9.98403L8.55301 8.44435C7.63895 7.16872 6.48519 6.57153 4.91707 6.57153H2.52832V9.00903H4.91707C5.69707 9.00903 6.11551 9.22435 6.57051 9.8581Z" fill="#0A85D1" />
                     </svg>
                     <h3>Visualize, filter & sort any way you want</h3>
-                    <p>Show only tasks assigned to you, or items marked as urgent. Break
-                        down any project in the way that’s most helpful to you.</p>
-                    <img src='/assets/blocks1.png'alt='invalid' />
+                    <p>
+                        Show only tasks assigned to you, or items marked as urgent. Break down any project in the way that’s most helpful
+                        to you.
+                    </p>
+                    {selectedOption === 'Board' && <img src="https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/building-blocks/kanban.png" alt="Board " />}
+                    {selectedOption === 'Table' && <img src="https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/building-blocks/table.png" alt="Table " />}
+                    {selectedOption === 'Timeline' && <img src="https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/building-blocks/timeline.png" alt="Timeline " />}
+                    {selectedOption === 'Calendar' && <img src="https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/building-blocks/timeline.png" alt="Calendar " />}
+                    {selectedOption === 'Gallery' && <img src="https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/building-blocks/gallery.png" alt="Gallery" />}
+                    {selectedOption === 'List' && <img src="https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/building-blocks/list.png" alt="List " />}
 
                     <div>
-                        <div>Board</div>
-                        <div>Table</div>
-                        <div>Timeline</div>
-                        <div>Calendar</div>
-                        <div>Gallery</div>
-                        <div>List</div>
+                        <div onClick={() => handleOptionClick('Board')}>Board</div>
+                        <div onClick={() => handleOptionClick('Table')}>Table</div>
+                        <div onClick={() => handleOptionClick('Timeline')}>Timeline</div>
+                        <div onClick={() => handleOptionClick('Calendar')}>Calendar</div>
+                        <div onClick={() => handleOptionClick('Gallery')}>Gallery</div>
+                        <div onClick={() => handleOptionClick('List')}>List</div>
                     </div>
                 </div>
                 <div className='buildingBlocksbox2'>
@@ -141,7 +183,7 @@ const Hero = () => {
                         <h3>Customize the info you track</h3>
                         <p>Create your own labels, tags, owners, and more, so
                             everyone has context and everything stays organized.</p>
-                        <img src='/assets/buildingblocks4.png' alt='invalid'/>
+                        <img src='/assets/buildingblocks4.png' alt='invalid' />
                     </div>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
@@ -150,14 +192,14 @@ const Hero = () => {
                         <h3>Build any page, communicate any idea</h3>
                         <p>Everything is drag and drop in Notion — images,
                             toggles, to-do’s, even embedded databases.</p>
-                        <img src='/assets/buildingblocks5.png' alt='invalid'/>
+                        <img src='/assets/buildingblocks5.png' alt='invalid' />
                     </div>
 
                 </div>
                 <br />
                 <h4>Notion adapts to your needs. It’s as minimal or as<br />powerful as you need it to be.</h4>
                 <div className='buildingBlocksbox3'>
-                    <img src='/assets/buildingblocksbox3img.png' alt='invalid'/>
+                    <img src='/assets/buildingblocksbox3img.png' alt='invalid' />
                     <h6>Rahim Makani<br /><span>Director of Product, Matchgroup</span></h6>
                 </div>
 
@@ -167,41 +209,33 @@ const Hero = () => {
                     Every team, side-by-side
                 </h2>
                 <div className='sidebysidebox'>
-                    <div>
-                        <img src='/assets/ssprofile1.png' alt='invalid'/>
-                        Engineering
-
-                    </div>
-                    <div>
-                        <img src='/assets/ssprofile1.png' alt='invalid'/>
-                        Engineering
-
-                    </div>
-                    <div>
-                        <img src='/assets/ssprofile1.png' alt='invalid'/>
-                        Engineering
-
-                    </div>
-                    <div>
+                    <div onClick={() => handleImageClick('https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/persona-carousel/screenshots/engineering.png')}>
                         <img src='/assets/ssprofile1.png' alt='invalid' />
                         Engineering
-
                     </div>
-                    <div>
-                        <img src='/assets/ssprofile1.png' alt='invalid'/>
-                        Engineering
-
+                    <div onClick={() => handleImageClick('https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/persona-carousel/screenshots/design.png')}>
+                        <img src='/assets/ssprofile2.png' alt='invalid' />
+                        Design
                     </div>
-                    <div>
-                        <img src='/assets/ssprofile1.png' alt='invalid'/>
-                        Engineering
-
+                    <div onClick={() => handleImageClick('https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/persona-carousel/screenshots/product.png')}>
+                        <img src='/assets/ssprofile3.png' alt='invalid' />
+                        Product
                     </div>
-
+                    <div onClick={() => handleImageClick('https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/persona-carousel/screenshots/marketing.png')}>
+                        <img src='/assets/ssprofile4.png' alt='invalid' />
+                        Marketing
+                    </div>
+                    <div onClick={() => handleImageClick('https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/persona-carousel/screenshots/operations.png')}>
+                        <img src='/assets/ssprofile5.png' alt='invalid' />
+                        Operations
+                    </div>
+                    <div onClick={() => handleImageClick('https://www.notion.so/cdn-cgi/image/format=webp,width=1920/front-static/pages/home/persona-carousel/screenshots/hr.png')}>
+                        <img src='/assets/ssprofile6.png' alt='invalid' />
+                        HR
+                    </div>
                 </div>
-                <div className='sidebysidebox2'>
 
-                </div>
+                <div className='sidebysidebox2' style={{ backgroundImage: `url(${selectedImage})` }}></div>
 
             </section>
             <section className='creativity'>
@@ -219,13 +253,14 @@ const Hero = () => {
                         <h6>An always-on support network</h6>
                         <p>Swap setups and share tips in over 149 online
                             communities.</p>
-                        <img src='/assets/creativity2.png' width='288px' height='276.75px' alt='invalid'/>
+                        <img src='/assets/creativity2.png' width='288px' height='276.75px' alt='invalid' />
                     </div>
                     <div>
-                        <h6>An always-on support network</h6>
-                        <p>Swap setups and share tips in over 149 online
-                            communities.</p>
-                        <img src='/assets/creativity3.png' width='288px' height='276.75px' alt='invalid'/>
+                        <h6>Choose your language</h6>
+                        <p>Notion currently supports English, Korean, Japanese,
+                            French, German, Spanish, and Portuguese. With more to
+                            come!</p>
+                        <img src='/assets/creativity3.png' width='288px' height='276.75px' alt='invalid' />
                     </div>
 
 
@@ -233,7 +268,7 @@ const Hero = () => {
                 </div>
                 <div className='creativityBox2'>
                     <div>
-                        <img src='/assets/creativity4.png' alt='invalid'/>
+                        <img src='/assets/creativity4.png' alt='invalid' />
                         <p>Community meet-up in Tokyo</p>
                         <div className='creativityBox2Circles'>
                             <div></div>
@@ -246,19 +281,6 @@ const Hero = () => {
 
                     </div>
                     <div>
-                        <div>
-                            <div>
-                                <img src='/assets/creativityProfile1.png' alt='invalid'/>
-                                <h6>Deborah Mecca
-                                    <br /><span>@DebMecca</span></h6></div>
-
-                            <p>I used to HATE documenting things. And
-                                then I started using <span>@NotionHQ</span> and I
-                                document a lot. A LOT A LOT. Now I just
-                                realize that it wasn't that I hated
-                                documenting, I just hated Google Docs.</p>
-
-                        </div>
                         <div>
                             <div>
                                 <img src='/assets/creativityProfile1.png' alt='invalid' />
@@ -274,15 +296,26 @@ const Hero = () => {
                         </div>
                         <div>
                             <div>
-                                <img src='/assets/creativityProfile1.png' alt='invalid'/>
-                                <h6>Deborah Mecca
-                                    <br /><span>@DebMecca</span></h6></div>
+                                <img src='/assets/creativityProfile2.png' alt='invalid' />
+                                <h6>André Blackman
+                                    <br /><span>@mindofandre</span></h6></div>
 
-                            <p>I used to HATE documenting things. And
-                                then I started using <span>@NotionHQ</span> and I
-                                document a lot. A LOT A LOT. Now I just
-                                realize that it wasn't that I hated
-                                documenting, I just hated Google Docs.</p>
+                            <p>One of the most incredible things about
+                                <span>@NotionHQ</span> is the dynamic community
+                                being built - creating and sharing at its
+                                best.</p>
+
+                        </div>
+                        <div>
+                            <div>
+                                <img src='/assets/creativityProfile3.png' alt='invalid' />
+                                <h6>Oliver Peyre
+                                    <br /><span>@opeyre</span></h6></div>
+
+                            <p><span>@NotionHQ</span> Truly impressed by the
+                                velocity and quality of your work.
+                                Making using Notion even more fun
+                                week after week!</p>
 
                         </div>
 
@@ -293,7 +326,7 @@ const Hero = () => {
             <section className='endlessways'>
                 <div className='endlesswaysHeader'>
                     <h2>Endless ways to use it<br /><span>Browse all templates →</span></h2>
-                    <img src='/assets/endless1.png' alt='invalid'/>
+                    <img src='/assets/endless1.png' alt='invalid' />
                 </div>
                 <div className='endlesswaysBody'>
                     <div>
@@ -302,7 +335,7 @@ const Hero = () => {
                         </svg>
                         <h3>Company wiki</h3>
                         <a href='temp'>Get template →</a>
-                        <img src='/assets/endless2.png' alt='invalid'/>
+                        <img src='/assets/endless2.png' alt='invalid' />
                     </div>
                     <div>
                         <h4>
@@ -323,33 +356,31 @@ const Hero = () => {
                         </h4>
                         <h4>
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
-                                <g clip-path="url(#clip0_1_829)">
-                                    <path d="M3.12842 26.2643C3.95134 26.2665 4.63931 25.595 4.6421 24.7471L4.66393 18.1265C5.03835 18.0153 5.91204 17.7433 7.13394 17.7466C11.5352 17.7583 14.8069 20.0613 19.2082 20.073C21.0785 20.078 22.2016 19.7942 23.1881 19.3355C24.1372 18.8892 24.6137 18.0551 24.6177 16.8706L24.6574 4.8137C24.6608 3.76636 23.94 3.05373 22.8926 3.05093C22.0323 3.04864 20.9587 3.45724 19.1757 3.45247C14.9115 3.44109 11.5027 1.13779 7.10145 1.12604C5.29354 1.12122 4.2578 1.38029 3.14644 1.88853C2.22238 2.30999 1.69657 2.95694 1.69283 4.09156L1.62476 24.7391C1.62201 25.5745 2.30551 26.2621 3.12842 26.2643ZM4.82208 11.7556L4.83401 8.13972C5.13419 7.85375 5.89591 7.50667 7.18015 7.5101C7.54174 7.51106 8.31461 7.563 8.88787 7.65181L8.89875 4.3477C10.3694 4.55113 11.7519 4.99121 13.1719 5.41893L13.161 8.71057C14.5311 9.16309 16.0884 9.54131 17.4345 9.70701L17.4454 6.40287C17.9689 6.46661 18.5048 6.50545 19.0534 6.50691C20.0135 6.50948 20.8616 6.42446 21.4981 6.2516L21.4873 9.54321C20.9506 9.69141 20.065 9.81379 19.0426 9.81101C18.6685 9.81006 18.1199 9.79611 17.4345 9.70701L17.4225 13.3228C18.1454 13.412 18.7813 13.4261 19.2551 13.4274C20.2152 13.43 20.8887 13.332 21.4753 13.1715L21.4647 16.3634C21.1896 16.6494 20.3904 16.984 19.0937 16.9805C18.5326 16.979 17.9843 16.9153 17.411 16.8264L17.4225 13.3228C15.8896 13.1068 14.5691 12.779 13.1491 12.3264L13.1379 15.7427C11.7926 15.3401 10.3974 14.9499 8.86436 14.7837L8.87594 11.2676C8.40235 11.204 7.90386 11.1279 7.16824 11.1259C5.88399 11.1225 5.12227 11.4696 4.82208 11.7556ZM8.87594 11.2676C10.4338 11.4962 11.6419 11.886 13.1491 12.3264L13.161 8.71057C11.741 8.29532 10.4581 7.88043 8.88787 7.65181L8.87594 11.2676Z" fill="#0A85D1" />
+                                <g clip-path="url(#clip0_1_845)">
+                                    <mask id="mask0_1_845" maskUnits="userSpaceOnUse" x="0" y="1" width="26" height="26">
+                                        <path d="M21.5508 1.09619H4.34151C2.16907 1.09619 0.407959 2.8573 0.407959 5.02974V22.239C0.407959 24.4114 2.16907 26.1726 4.34151 26.1726H21.5508C23.7232 26.1726 25.4843 24.4114 25.4843 22.239V5.02974C25.4843 2.8573 23.7232 1.09619 21.5508 1.09619Z" fill="white" />
+                                    </mask>
+                                    <g mask="url(#mask0_1_845)">
+                                        <path d="M10.1453 8.35529H15.7378C16.3308 8.35529 16.6775 7.98121 16.6775 7.36082V6.40291C16.6775 5.7734 16.3308 5.40848 15.7378 5.40848H15.0901C15.0079 4.29544 14.0865 3.40137 12.9461 3.40137C11.8057 3.40137 10.8843 4.29544 10.8021 5.40848H10.1453C9.56138 5.40848 9.21469 5.7734 9.21469 6.40291V7.36082C9.21469 7.98121 9.56138 8.35529 10.1453 8.35529ZM12.9461 6.31167C12.4899 6.31167 12.1159 5.9285 12.1159 5.49059C12.1159 5.03443 12.4899 4.66949 12.9461 4.66949C13.4023 4.66949 13.7672 5.03443 13.7672 5.49059C13.7672 5.9285 13.4023 6.31167 12.9461 6.31167ZM8.11077 26.0361H17.7814C19.8068 26.0361 20.9928 24.8409 20.9928 22.7882V9.03041C20.9928 6.99592 19.825 5.7734 17.8362 5.7734H17.6446C17.7266 5.95587 17.7632 6.17483 17.7632 6.40291V7.28783C17.7632 7.56153 17.7266 7.8079 17.6355 8.02687H17.7723C18.4018 8.02687 18.7394 8.42828 18.7394 9.04867V22.7608C18.7394 23.4086 18.3653 23.7917 17.6902 23.7917H8.19289C7.51778 23.7917 7.14376 23.4086 7.14376 22.7608V9.04867C7.14376 8.42828 7.49045 8.02687 8.1199 8.02687H8.25675C8.16556 7.8079 8.12903 7.56153 8.12903 7.28783V6.40291C8.12903 6.17483 8.16556 5.95587 8.23855 5.7734H8.05604C6.0672 5.7734 4.89943 6.99592 4.89943 9.03041V22.7882C4.89943 24.8409 6.08544 26.0361 8.11077 26.0361ZM9.4154 13.7563C9.93546 13.7563 10.346 13.3457 10.346 12.8256C10.346 12.3148 9.93546 11.9042 9.4154 11.9042C8.91366 11.9042 8.49398 12.3239 8.49398 12.8256C8.49398 13.3366 8.91366 13.7563 9.4154 13.7563ZM12.0338 13.6011H16.6319C17.0607 13.6011 17.4074 13.2545 17.4074 12.8256C17.4074 12.406 17.0607 12.0502 16.6319 12.0502H12.0338C11.605 12.0502 11.2583 12.406 11.2583 12.8256C11.2583 13.2545 11.605 13.6011 12.0338 13.6011ZM9.4154 16.9676C9.93546 16.9676 10.346 16.557 10.346 16.037C10.346 15.5262 9.92633 15.1247 9.4154 15.1247C8.90453 15.1247 8.49398 15.5352 8.49398 16.037C8.49398 16.557 8.90453 16.9676 9.4154 16.9676ZM12.0338 16.8217H16.6319C17.0698 16.8217 17.4074 16.475 17.4074 16.037C17.4074 15.6173 17.0607 15.2707 16.6319 15.2707H12.0338C11.605 15.2707 11.2583 15.6173 11.2583 16.037C11.2583 16.475 11.5958 16.8217 12.0338 16.8217ZM9.4154 20.3523C9.93546 20.3523 10.346 19.9509 10.346 19.4308C10.346 18.9108 9.93546 18.5094 9.4154 18.5094C8.91366 18.5094 8.49398 18.92 8.49398 19.4308C8.49398 19.9418 8.91366 20.3523 9.4154 20.3523ZM12.0338 20.2063H16.6319C17.0607 20.2063 17.4074 19.8597 17.4074 19.4308C17.4074 19.0021 17.0607 18.6645 16.6319 18.6645H12.0338C11.605 18.6645 11.2583 19.0021 11.2583 19.4308C11.2583 19.8597 11.605 20.2063 12.0338 20.2063ZM5.27348 41.9448H20.6096C22.6989 41.9448 23.8301 40.8135 23.8301 38.7426V33.5241C23.8301 32.2286 23.6659 31.6812 23.0729 30.9331L20.3268 27.3659C19.159 25.8606 18.5843 25.4135 16.8782 25.4135H9.00485C7.30794 25.4135 6.73321 25.8606 5.5563 27.3659L2.81021 30.9331C2.22632 31.6903 2.05298 32.2286 2.05298 33.5241V38.7426C2.05298 40.8135 3.19338 41.9448 5.27348 41.9448ZM12.9461 35.8414C11.5411 35.8414 10.6836 34.8652 10.6836 33.6883V33.5606C10.6836 33.1226 10.4281 32.703 9.88073 32.703H4.87206C4.48888 32.703 4.43414 32.3928 4.6166 32.1465L7.85533 27.9315C8.19289 27.4936 8.59431 27.2929 9.13263 27.2929H16.7505C17.2888 27.2929 17.6902 27.4936 18.0277 27.9315L21.2574 32.1465C21.449 32.3928 21.3851 32.703 21.011 32.703H16.0024C15.455 32.703 15.1996 33.1226 15.1996 33.5606V33.6883C15.1996 34.8652 14.342 35.8414 12.9461 35.8414Z" fill="#F5A300" />
+                                    </g>
                                 </g>
                                 <defs>
-                                    <clipPath id="clip0_1_829">
-                                        <rect width="26" height="26" fill="white" transform="translate(0.0908203 0.6875)" />
+                                    <clipPath id="clip0_1_845">
+                                        <rect width="26" height="26" fill="white" transform="translate(0.0908203 0.617676)" />
                                     </clipPath>
                                 </defs>
                             </svg>
                             <br />
-                            Product roadmap
+                            Meeting notes
                             <br /><br />
                             <span>Get template →</span>
                         </h4>
                         <h4>
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
-                                <g clip-path="url(#clip0_1_829)">
-                                    <path d="M3.12842 26.2643C3.95134 26.2665 4.63931 25.595 4.6421 24.7471L4.66393 18.1265C5.03835 18.0153 5.91204 17.7433 7.13394 17.7466C11.5352 17.7583 14.8069 20.0613 19.2082 20.073C21.0785 20.078 22.2016 19.7942 23.1881 19.3355C24.1372 18.8892 24.6137 18.0551 24.6177 16.8706L24.6574 4.8137C24.6608 3.76636 23.94 3.05373 22.8926 3.05093C22.0323 3.04864 20.9587 3.45724 19.1757 3.45247C14.9115 3.44109 11.5027 1.13779 7.10145 1.12604C5.29354 1.12122 4.2578 1.38029 3.14644 1.88853C2.22238 2.30999 1.69657 2.95694 1.69283 4.09156L1.62476 24.7391C1.62201 25.5745 2.30551 26.2621 3.12842 26.2643ZM4.82208 11.7556L4.83401 8.13972C5.13419 7.85375 5.89591 7.50667 7.18015 7.5101C7.54174 7.51106 8.31461 7.563 8.88787 7.65181L8.89875 4.3477C10.3694 4.55113 11.7519 4.99121 13.1719 5.41893L13.161 8.71057C14.5311 9.16309 16.0884 9.54131 17.4345 9.70701L17.4454 6.40287C17.9689 6.46661 18.5048 6.50545 19.0534 6.50691C20.0135 6.50948 20.8616 6.42446 21.4981 6.2516L21.4873 9.54321C20.9506 9.69141 20.065 9.81379 19.0426 9.81101C18.6685 9.81006 18.1199 9.79611 17.4345 9.70701L17.4225 13.3228C18.1454 13.412 18.7813 13.4261 19.2551 13.4274C20.2152 13.43 20.8887 13.332 21.4753 13.1715L21.4647 16.3634C21.1896 16.6494 20.3904 16.984 19.0937 16.9805C18.5326 16.979 17.9843 16.9153 17.411 16.8264L17.4225 13.3228C15.8896 13.1068 14.5691 12.779 13.1491 12.3264L13.1379 15.7427C11.7926 15.3401 10.3974 14.9499 8.86436 14.7837L8.87594 11.2676C8.40235 11.204 7.90386 11.1279 7.16824 11.1259C5.88399 11.1225 5.12227 11.4696 4.82208 11.7556ZM8.87594 11.2676C10.4338 11.4962 11.6419 11.886 13.1491 12.3264L13.161 8.71057C11.741 8.29532 10.4581 7.88043 8.88787 7.65181L8.87594 11.2676Z" fill="#0A85D1" />
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1_829">
-                                        <rect width="26" height="26" fill="white" transform="translate(0.0908203 0.6875)" />
-                                    </clipPath>
-                                </defs>
+                                <path d="M19.5908 5.43262V2.99512H17.1533V5.43262H9.02832V2.99512H6.59082V5.43262H3.34082V21.6826H22.8408V5.43262H19.5908ZM9.02832 19.6514H5.77832V16.8076H9.02832V19.6514ZM9.02832 14.7764H5.77832V11.9326H9.02832V14.7764ZM14.7158 19.6514H11.4658V16.8076H14.7158V19.6514ZM14.7158 14.7764H11.4658V11.9326H14.7158V14.7764ZM20.4033 19.6514H17.1533V16.8076H20.4033V19.6514ZM20.4033 14.7764H17.1533V11.9326H20.4033V14.7764Z" fill="#2A9D99" />
                             </svg>
                             <br />
-                            Product roadmap
+                            Editorial calendar
                             <br /><br /><br />
                             <span>Get template →</span>
                         </h4>
@@ -358,49 +389,35 @@ const Hero = () => {
                     <div>
                         <h4>
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
-                                <g clip-path="url(#clip0_1_829)">
-                                    <path d="M3.12842 26.2643C3.95134 26.2665 4.63931 25.595 4.6421 24.7471L4.66393 18.1265C5.03835 18.0153 5.91204 17.7433 7.13394 17.7466C11.5352 17.7583 14.8069 20.0613 19.2082 20.073C21.0785 20.078 22.2016 19.7942 23.1881 19.3355C24.1372 18.8892 24.6137 18.0551 24.6177 16.8706L24.6574 4.8137C24.6608 3.76636 23.94 3.05373 22.8926 3.05093C22.0323 3.04864 20.9587 3.45724 19.1757 3.45247C14.9115 3.44109 11.5027 1.13779 7.10145 1.12604C5.29354 1.12122 4.2578 1.38029 3.14644 1.88853C2.22238 2.30999 1.69657 2.95694 1.69283 4.09156L1.62476 24.7391C1.62201 25.5745 2.30551 26.2621 3.12842 26.2643ZM4.82208 11.7556L4.83401 8.13972C5.13419 7.85375 5.89591 7.50667 7.18015 7.5101C7.54174 7.51106 8.31461 7.563 8.88787 7.65181L8.89875 4.3477C10.3694 4.55113 11.7519 4.99121 13.1719 5.41893L13.161 8.71057C14.5311 9.16309 16.0884 9.54131 17.4345 9.70701L17.4454 6.40287C17.9689 6.46661 18.5048 6.50545 19.0534 6.50691C20.0135 6.50948 20.8616 6.42446 21.4981 6.2516L21.4873 9.54321C20.9506 9.69141 20.065 9.81379 19.0426 9.81101C18.6685 9.81006 18.1199 9.79611 17.4345 9.70701L17.4225 13.3228C18.1454 13.412 18.7813 13.4261 19.2551 13.4274C20.2152 13.43 20.8887 13.332 21.4753 13.1715L21.4647 16.3634C21.1896 16.6494 20.3904 16.984 19.0937 16.9805C18.5326 16.979 17.9843 16.9153 17.411 16.8264L17.4225 13.3228C15.8896 13.1068 14.5691 12.779 13.1491 12.3264L13.1379 15.7427C11.7926 15.3401 10.3974 14.9499 8.86436 14.7837L8.87594 11.2676C8.40235 11.204 7.90386 11.1279 7.16824 11.1259C5.88399 11.1225 5.12227 11.4696 4.82208 11.7556ZM8.87594 11.2676C10.4338 11.4962 11.6419 11.886 13.1491 12.3264L13.161 8.71057C11.741 8.29532 10.4581 7.88043 8.88787 7.65181L8.87594 11.2676Z" fill="#0A85D1" />
+                                <g clip-path="url(#clip0_1_837)">
+                                    <path d="M12.9047 26.3542C19.9031 26.3728 25.6655 20.6326 25.6886 13.6343C25.7117 6.64801 19.9751 0.877096 12.9888 0.858444C5.9904 0.83976 0.227933 6.57997 0.204903 13.5662C0.181834 20.5646 5.91841 26.3355 12.9047 26.3542ZM11.5995 19.6539C11.0565 19.6525 10.635 19.41 10.2505 18.9384L7.42604 15.5523C7.14964 15.2137 7.04204 14.9118 7.04319 14.5619C7.04566 13.8138 7.65091 13.2241 8.38694 13.2261C8.8213 13.2273 9.15863 13.3971 9.48313 13.7841L11.5741 16.3839L16.3045 8.91548C16.62 8.40954 17.0189 8.15721 17.4895 8.15847C18.2135 8.1604 18.8754 8.69308 18.8729 9.44121C18.872 9.74281 18.7502 10.0683 18.532 10.3814L12.9051 18.9335C12.5898 19.3912 12.1184 19.6553 11.5995 19.6539Z" fill="#F8792A" />
                                 </g>
                                 <defs>
-                                    <clipPath id="clip0_1_829">
+                                    <clipPath id="clip0_1_837">
                                         <rect width="26" height="26" fill="white" transform="translate(0.0908203 0.6875)" />
                                     </clipPath>
                                 </defs>
                             </svg>
                             <br />
-                            Product roadmap
+                            OKRs
                             <br /><br /><br />
                             <span>Get template →</span>
                         </h4>
                         <h4>
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
-                                <g clip-path="url(#clip0_1_829)">
-                                    <path d="M3.12842 26.2643C3.95134 26.2665 4.63931 25.595 4.6421 24.7471L4.66393 18.1265C5.03835 18.0153 5.91204 17.7433 7.13394 17.7466C11.5352 17.7583 14.8069 20.0613 19.2082 20.073C21.0785 20.078 22.2016 19.7942 23.1881 19.3355C24.1372 18.8892 24.6137 18.0551 24.6177 16.8706L24.6574 4.8137C24.6608 3.76636 23.94 3.05373 22.8926 3.05093C22.0323 3.04864 20.9587 3.45724 19.1757 3.45247C14.9115 3.44109 11.5027 1.13779 7.10145 1.12604C5.29354 1.12122 4.2578 1.38029 3.14644 1.88853C2.22238 2.30999 1.69657 2.95694 1.69283 4.09156L1.62476 24.7391C1.62201 25.5745 2.30551 26.2621 3.12842 26.2643ZM4.82208 11.7556L4.83401 8.13972C5.13419 7.85375 5.89591 7.50667 7.18015 7.5101C7.54174 7.51106 8.31461 7.563 8.88787 7.65181L8.89875 4.3477C10.3694 4.55113 11.7519 4.99121 13.1719 5.41893L13.161 8.71057C14.5311 9.16309 16.0884 9.54131 17.4345 9.70701L17.4454 6.40287C17.9689 6.46661 18.5048 6.50545 19.0534 6.50691C20.0135 6.50948 20.8616 6.42446 21.4981 6.2516L21.4873 9.54321C20.9506 9.69141 20.065 9.81379 19.0426 9.81101C18.6685 9.81006 18.1199 9.79611 17.4345 9.70701L17.4225 13.3228C18.1454 13.412 18.7813 13.4261 19.2551 13.4274C20.2152 13.43 20.8887 13.332 21.4753 13.1715L21.4647 16.3634C21.1896 16.6494 20.3904 16.984 19.0937 16.9805C18.5326 16.979 17.9843 16.9153 17.411 16.8264L17.4225 13.3228C15.8896 13.1068 14.5691 12.779 13.1491 12.3264L13.1379 15.7427C11.7926 15.3401 10.3974 14.9499 8.86436 14.7837L8.87594 11.2676C8.40235 11.204 7.90386 11.1279 7.16824 11.1259C5.88399 11.1225 5.12227 11.4696 4.82208 11.7556ZM8.87594 11.2676C10.4338 11.4962 11.6419 11.886 13.1491 12.3264L13.161 8.71057C11.741 8.29532 10.4581 7.88043 8.88787 7.65181L8.87594 11.2676Z" fill="#0A85D1" />
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1_829">
-                                        <rect width="26" height="26" fill="white" transform="translate(0.0908203 0.6875)" />
-                                    </clipPath>
-                                </defs>
+                                <path d="M24.5593 15.2773C24.5537 14.1916 23.079 13.2206 21.1813 13.2155L17.3131 13.2052C16.8022 13.2038 16.6201 13.0938 16.3019 12.7646L10.0381 6.06051C9.82892 5.84098 9.59213 5.73088 9.32756 5.73017L7.97727 5.72656C7.7401 5.72593 7.59342 5.94449 7.71118 6.19114L10.9543 13.1699L6.20855 13.6773L4.52126 10.7534C4.38516 10.5249 4.18478 10.424 3.89284 10.4233L3.46405 10.4221C3.19948 10.4214 3.01641 10.6034 3.01557 10.8588L2.98682 19.5806C2.98598 19.836 3.16784 20.019 3.43241 20.0197L3.8612 20.0208C4.15314 20.0216 4.35422 19.9127 4.49178 19.6941L6.19832 16.7792L10.9406 17.3119L7.65164 24.2641C7.53216 24.5192 7.67745 24.7386 7.91462 24.7392L9.26484 24.7428C9.52941 24.7435 9.76702 24.6347 9.97756 24.4163L16.2855 17.7458C16.6059 17.4091 16.7887 17.3093 17.2996 17.3106L21.1678 17.3209C23.0655 17.326 24.5466 16.3629 24.5593 15.2773Z" fill="#EA4E43" />
                             </svg>
                             <br />
-                            Product roadmap
+                            Vacation planner
                             <br /><br />
                             <span>Get template →</span>
                         </h4>
                         <h4>
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
-                                <g clip-path="url(#clip0_1_829)">
-                                    <path d="M3.12842 26.2643C3.95134 26.2665 4.63931 25.595 4.6421 24.7471L4.66393 18.1265C5.03835 18.0153 5.91204 17.7433 7.13394 17.7466C11.5352 17.7583 14.8069 20.0613 19.2082 20.073C21.0785 20.078 22.2016 19.7942 23.1881 19.3355C24.1372 18.8892 24.6137 18.0551 24.6177 16.8706L24.6574 4.8137C24.6608 3.76636 23.94 3.05373 22.8926 3.05093C22.0323 3.04864 20.9587 3.45724 19.1757 3.45247C14.9115 3.44109 11.5027 1.13779 7.10145 1.12604C5.29354 1.12122 4.2578 1.38029 3.14644 1.88853C2.22238 2.30999 1.69657 2.95694 1.69283 4.09156L1.62476 24.7391C1.62201 25.5745 2.30551 26.2621 3.12842 26.2643ZM4.82208 11.7556L4.83401 8.13972C5.13419 7.85375 5.89591 7.50667 7.18015 7.5101C7.54174 7.51106 8.31461 7.563 8.88787 7.65181L8.89875 4.3477C10.3694 4.55113 11.7519 4.99121 13.1719 5.41893L13.161 8.71057C14.5311 9.16309 16.0884 9.54131 17.4345 9.70701L17.4454 6.40287C17.9689 6.46661 18.5048 6.50545 19.0534 6.50691C20.0135 6.50948 20.8616 6.42446 21.4981 6.2516L21.4873 9.54321C20.9506 9.69141 20.065 9.81379 19.0426 9.81101C18.6685 9.81006 18.1199 9.79611 17.4345 9.70701L17.4225 13.3228C18.1454 13.412 18.7813 13.4261 19.2551 13.4274C20.2152 13.43 20.8887 13.332 21.4753 13.1715L21.4647 16.3634C21.1896 16.6494 20.3904 16.984 19.0937 16.9805C18.5326 16.979 17.9843 16.9153 17.411 16.8264L17.4225 13.3228C15.8896 13.1068 14.5691 12.779 13.1491 12.3264L13.1379 15.7427C11.7926 15.3401 10.3974 14.9499 8.86436 14.7837L8.87594 11.2676C8.40235 11.204 7.90386 11.1279 7.16824 11.1259C5.88399 11.1225 5.12227 11.4696 4.82208 11.7556ZM8.87594 11.2676C10.4338 11.4962 11.6419 11.886 13.1491 12.3264L13.161 8.71057C11.741 8.29532 10.4581 7.88043 8.88787 7.65181L8.87594 11.2676Z" fill="#0A85D1" />
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1_829">
-                                        <rect width="26" height="26" fill="white" transform="translate(0.0908203 0.6875)" />
-                                    </clipPath>
-                                </defs>
+                                <path d="M20.6755 3.80762H5.50613L3.34082 16.8076V23.3076H22.8408V16.8076L20.6755 3.80762ZM15.5283 16.8076C15.5283 18.1523 14.4355 19.2451 13.0908 19.2451C11.7461 19.2451 10.6533 18.1523 10.6533 16.8076H5.81082L7.56988 6.24512H18.6077L20.3668 16.8076H15.5243H15.5283Z" fill="#9D34DA" />
                             </svg>
                             <br />
-                            Product roadmap
+                            Habit tracker
                             <br /><br /><br />
                             <span>Get template →</span>
                         </h4>
@@ -414,7 +431,7 @@ const Hero = () => {
                     <button>Try Notion free</button>
                     <a href='temp'>Request a demo →</a>
                 </div>
-                <img src='/assets/getstarted1.png' alt='invalid'/>
+                <img src='/assets/getstarted1.png' alt='invalid' />
 
             </section>
             <footer>
@@ -554,7 +571,7 @@ const Hero = () => {
                     <p>Webinars</p>
                     <p>Blog</p>
                     <p>Community</p>
-                
+
 
                 </div>
                 <div className='getStartedBox'>
