@@ -62,7 +62,7 @@ const navbar = () => {
 
             </div>
             <div className='navbarRight'>
-                <a>Request a demo</a>
+                <a href='demo'>Request a demo</a>
                 <p></p>
                 <div>
                     <button>Log in</button>
