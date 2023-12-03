@@ -3,7 +3,7 @@ import React from 'react'
 
 import "../App.css"
 
-const hero = () => {
+const Hero = () => {
     return (
         <div>
             <section className='heroheading'>
@@ -585,4 +585,4 @@ const hero = () => {
     )
 }
 
-export default hero
+export default Hero
